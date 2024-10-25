@@ -15,5 +15,5 @@ public interface UserService {
 
     Optional<User> findById(Long id);
 
-    void delete(User user);
+    void delete(Long id);
 }
