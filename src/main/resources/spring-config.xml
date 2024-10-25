@@ -14,17 +14,17 @@
        http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
    <!-- Enable component scanning for Spring annotations -->
-   <context:component-scan base-package="org.technova.repository"/>
+   <context:component-scan base-package="org.technova"/>
 
    <!-- Enable Spring Data JPA repositories -->
    <jpa:repositories base-package="org.technova.repository"/>
 
-   <bean id="service" class="org.technova.service.implementation.UserServiceImp">
+   <bean id="userService" class="org.technova.service.implementation.UserServiceImp">
       <property name="userRepository" ref="userRepository"/>
    </bean>
 
    <bean id="userController" class="org.technova.controller.UserController">
-      <property name="userService" ref="service"/>
+      <property name="userService" ref="userService"/>
    </bean>
 
    <bean id="homeController" class="org.technova.controller.HomeController" />
@@ -33,8 +33,8 @@
    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
       <property name="driverClassName" value="org.postgresql.Driver"/>
       <property name="url" value="jdbc:postgresql://localhost:5432/technova"/>
-      <property name="username" value="postgres"/>
-      <property name="password" value="toor"/>
+      <property name="username" value="admin"/>
+      <property name="password" value="admin"/>
    </bean>
 
    <!-- JPA EntityManagerFactory Configuration -->

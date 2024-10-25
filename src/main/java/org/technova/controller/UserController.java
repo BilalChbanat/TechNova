@@ -24,20 +24,20 @@ public class UserController {
     public String index(Model model){
         List<User> users = userService.findAll();
         model.addAttribute("users", users);
-        return "/user/index";
+        return "user/index";
     }
 
     @GetMapping("/users/create")
     public String create(Model model){
         User user = new User();
         model.addAttribute("user",user);
-        return "/user/create";
+        return "user/create";
     }
 
     @PostMapping("/users/save")
     public String save(@ModelAttribute("user") User user){
         userService.create(user);
-        return "redirect:/users";
+        return "redirect:users";
     }
 
     @GetMapping("/users/edit/{id}")
@@ -45,7 +45,7 @@ public class UserController {
         Optional<User> user = userService.findById(id);
         if (user.isPresent()){
             model.addAttribute("user",user.get());
-            return "/users/edit";
+            return "users/edit";
         }else{
             return "redirect:errors/404";
         }
@@ -54,13 +54,13 @@ public class UserController {
     @PostMapping("/users/update/{id}")
     public String update(@PathVariable("id") Long id,@ModelAttribute("user") User user){
         userService.update(user);
-        return "redirect:/users";
+        return "redirect:users";
     }
 
     @GetMapping("/users/delete/{id}")
     public String delete(@PathVariable("id") Long id){
         userService.delete(id);
-        return "redirect:/users";
+        return "redirect:users";
     }
 
 }
