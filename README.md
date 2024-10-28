@@ -47,6 +47,10 @@ The project uses **Spring Data JPA** for persistence, enabling easy CRUD operati
 ## Spring MVC
 The **Spring MVC** framework is used to handle web requests, allowing users to interact with the system through a web interface for managing user data.
 
+## UML
+![image](https://github.com/user-attachments/assets/d78cdb46-20e2-48df-9145-9bfb0f18a744)
+
+
 ## Installation and Setup
 1. Clone the repository.
 2. Set up a **relational database** (e.g., PostgreSQL) and configure the connection in `ApplicationContext.xml`.
